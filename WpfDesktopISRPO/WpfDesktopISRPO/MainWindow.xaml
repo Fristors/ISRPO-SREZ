@@ -1,0 +1,154 @@
+﻿<Window x:Class="WpfDesktopISRPO.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfDesktopISRPO"
+        Title="MainWindow"
+        Width="1100"
+        Height="660"
+        FontSize="14"
+        mc:Ignorable="d">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1.2*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*" />
+            <RowDefinition Height="1.4*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Vertical">
+            <Label Content="Дата начала" />
+            <TextBox x:Name="tbDateStart" />
+        </StackPanel>
+        <StackPanel
+            Grid.Column="1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Orientation="Vertical">
+            <Label Content="Дата Окончания" />
+            <TextBox x:Name="tbDateEnd" />
+        </StackPanel>
+        <StackPanel
+            Grid.Column="2"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Orientation="Vertical">
+            <Label Content="" />
+            <Button
+                x:Name="btnPost"
+                Background="#FFFEA6A6"
+                Click="btnPost_Click"
+                Content="Получить" />
+        </StackPanel>
+
+        <ListBox
+            x:Name="lbSale"
+            Grid.Row="1"
+            Grid.ColumnSpan="3"
+            Margin="5,10"
+            ScrollViewer.VerticalScrollBarVisibility="Visible" />
+        <ComboBox
+            x:Name="cbDiagram"
+            Grid.Row="2"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            SelectionChanged="cbDiagram_SelectionChanged">
+            <ComboBoxItem Content="Фирмы" />
+            <ComboBoxItem Content="Продажи" />
+        </ComboBox>
+        <WpfPlot
+            x:Name="PieDiagram"
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Margin="160,0,-30,0"
+            FontSize="12"
+            Visibility="Hidden" />
+        <WpfPlot
+            x:Name="LineDiagram"
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Margin="160,0,-30,0"
+            FontSize="12"
+            Visibility="Hidden" />
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="3"
+            Margin="10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Orientation="Vertical">
+            <TextBlock
+                Width="150"
+                Height="30"
+                Text="Сформировать чек"
+                TextAlignment="Center" />
+            <Border
+                Margin="-5,5"
+                BorderBrush="Black"
+                BorderThickness="1">
+                <DockPanel Margin="10" VerticalAlignment="Center">
+                    <Image
+                        x:Name="btnChequeWord"
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Left"
+                        Source="Resources/WordIcon.png"
+                        MouseLeftButtonDown="btnChequeWord_MouseLeftButtonDown"/>
+                    <Image
+                        x:Name="btnChequeExcel"
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Right"
+                        MouseLeftButtonDown="btnChequeExcel_MouseLeftButtonDown"
+                        Source="Resources/ExcelIcon.png" />
+                </DockPanel>
+            </Border>
+        </StackPanel>
+        <StackPanel
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            Grid.Column="3"
+            Margin="10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Vertical">
+            <TextBlock
+                Width="150"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Text="Сформировать&#x0a;отчетность"
+                TextAlignment="Center" />
+            <Border
+                Margin="-5,5"
+                BorderBrush="Black"
+                BorderThickness="1">
+                <DockPanel Margin="10" VerticalAlignment="Center">
+                    <Image
+                        x:Name="btnReportWord"
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Left"
+                        Source="Resources/WordIcon.png" 
+                        MouseLeftButtonDown="btnReportWord_MouseLeftButtonDown"/>
+                    <Image
+                        x:Name="btnReportExcel"
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Right"
+                        Source="Resources/ExcelIcon.png"
+                        MouseLeftButtonDown="btnReportExcel_MouseLeftButtonDown"/>
+                </DockPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Window>
